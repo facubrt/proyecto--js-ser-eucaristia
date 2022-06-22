@@ -1,0 +1,36 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.paperplane {
+    display: grid;
+    margin: 2rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: #f5f4f7;
+    grid-template-columns: 1fr 2fr;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    font-size: 2.4rem;
+    color: #372256;
+}
+
+h2 {
+    padding: 2rem 0rem;
+    font-size: 1.2rem;
+    color: #98A3E9
+}
+
+h3 {
+    font-size: 0.8rem;
+    color: #D1CED7;
+}
+
+.imgPaperplane img{
+    width: 80%;
+    border-radius: 1rem;
+}
