@@ -94,25 +94,25 @@ for (const paperplane of paperplanes) {
 // GENERACION ALEATORIA DE AVIONCITO
 function surprise() {
     let index = Math.round(Math.random() * paperplanesList.length);
-    //paperplanesList[index].getPaperplane();
+    cardPaperplane(paperplanesList[index]);
+}
 
+function cardPaperplane(paperplane) {
     //innerHTML
-    let paperplane = document.querySelector('.paperplane');
+    let sectionPaperplane = document.querySelector('.paperplane');
     let imgPaperplane = document.createElement('div');
     let txtPaperplane = document.createElement('div');
-    paperplane.innerHTML = `
+    sectionPaperplane.innerHTML = `
     <div class="imgPaperplane">
 
-    <img src="assets/img/${paperplanesList[index].img}.png">
+    <img src="assets/img/${paperplane.img}.png">
     </div>
     <div class="txtPaperplane">
-    <h1>${paperplanesList[index].quote}</h1>
-    <h2>${paperplanesList[index].source}</h2>
-    <h3>${paperplanesList[index].category}</h3>
+    <h1>${paperplane.quote}</h1>
+    <h2>${paperplane.source}</h2>
+    <h3>${paperplane.category}</h3>
     </div>
     `;
-
-    
 }
 
 function filtCategory() {
@@ -121,19 +121,19 @@ function filtCategory() {
     switch (comando) {
         case "AMOR":
             paperplane = new Paperplane(paperplanes.find(paperplane => paperplane.category === 'Amor'));
-            paperplane.getPaperplane();
+            cardPaperplane(paperplane);
             break;
         case "MARIA":
             paperplane = new Paperplane(paperplanes.find(paperplane => paperplane.category === 'María'));
-            paperplane.getPaperplane();
+            cardPaperplane(paperplane);
             break;
         case "SANTIDAD":
             paperplane = new Paperplane(paperplanes.find(paperplane => paperplane.category === 'Santidad'));
-            paperplane.getPaperplane();
+            cardPaperplane(paperplane);
             break;
         case "ENTREGA":
             paperplane = new Paperplane(paperplanes.find(paperplane => paperplane.category === 'Entrega'));
-            paperplane.getPaperplane();
+            cardPaperplane(paperplane);
             break;
     }
 }
