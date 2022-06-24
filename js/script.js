@@ -1,69 +1,80 @@
-// ARRAYS DE AVIONCITOS DE PAPEL
+//VARIABLES
+let imgPaperplane = document.querySelector('.imgPaperplane');
+let txtPaperplane = document.querySelector('.txtPaperplane');
+let gmPaperplane = document.querySelector('.gmPaperplane');
+let firstOption = document.querySelector('#option-1');
+let secondOption = document.querySelector('#option-2');
+let thirdOption = document.querySelector('#option-3');
 
-// ESTE CODIGO YA COMIENZA A SER PARTE DEL PROYECTO FINAL,
-// DONDE SE RECIBIRÁN AVIONCITOS DE PAPEL LOS CUALES CONTIENEN
-// FRASES DE SANTOS, VERSÍCULOS, CANCIONES, ETC REFERIDOS A LA FE
-// ESTO ES PARTE DEL PROYECTO "SER EUCARISTÍA" (ig: @sereucaristia).
-
-
+// PAPERPLANES
 const paperplanes = [
     {
         quote: "Al final del camino me dirán: ¿Has vivido? ¿Has amado? Y yo, sin decir nada, abriré el corazón lleno de nombres",
         source: "Pedro Casaldáliga",
+        options: ["Pedro Casaldáliga", "San Antonio de Padua", "Santa Faustina Kowalska"],
         category: "Amor",
         img: "img-01",
     },
     {
         quote: "Y me dijo el Señor que quería que yo fuera un nuevo loco en el mundo",
         source: "San Francisco de Asís",
+        options: ["San Francisco de Asís", "San Agustín", "San Bernardo"],
         category: "Entrega",
         img: "img-02",
     },
     {
         quote: "Rezar el Rosario es contemplar con María el rostro de Cristo",
         source: "San Juan Pablo II",
+        options: ["San Pio de Pietrelcina", "Santa Catalina de Siena", "San Juan Pablo II"],
         category: "María",
         img: "img-03"
     },
     {
         quote: "En su bondad infinita, jamás abandona Dios a aquellos que no le quieren abandonar a Él.",
         source: "San Francisco de Sales",
+        options: ["San Pablo", "San Francisco de Sales", "Santa Inés"],
         category: "Amor",
         img: "img-04",
     },
     {
         quote: "La santidad no es otra cosa sino una respuesta de amor al anuncio del amor",
         source: "Padre Ignacio Larrañaga",
+        options: ["Beato Carlo Acutis", "Beata Chiara Badano", "Padre Ignacio Larrañaga"],
         category: "Santidad",
         img: "img-05"
     },
     {
         quote: "Dios extiende sus manos en la Cruz para abrazar hasta los confines del universo",
         source: "San Cirilo de Jerusalén ",
+        options: ["San Pio de Pietrelcina", "San Cirilo de Jerusalén", "San Agustín"],
         category: "Amor",
         img: "img-06"
     },
     {
         quote: "Ser libre en el amor es su completa y total realización",
         source: "Viviana Ruffener",
+        options: ["Padre Ignacio Larrañaga", "Viviana Ruffener", "Pedro Casaldáliga"],
         category: "Amor",
         img: "img-07"
     },
     {
         quote: "Te buscaba afuera, Señor, y tú estabas dentro de mi, en mi corazón...",
         source: "San Agustín",
+        options: ["San Agustín", "Santo Tomás de Aquino", "San Juan Pablo II"],
         category: "Amor",
         img: "img-08"
     },
     {
         quote: "Mira la estrella e invoca a María, porque un hijo de María nunca perecedera",
         source: "San Bernardo",
+        options: ["San Francisco de Asís", "San Francisco de Sales", "San Bernardo"],
         category: "María",
         img: "img-09"
     },
     {
         quote: "La paz comienza con una sonrisa",
         source: "Santa Teresa de Calcuta",
+        options: ["Santa Inés", "Santa Teresa de Lisieux", "Santa Teresa de Calcuta"],
         category: "Santidad",
         img: "img-10"
     },
@@ -73,15 +84,10 @@ class Paperplane {
     constructor(paperplane) {
         this.quote = paperplane.quote;
         this.source = paperplane.source;
+        this.options = paperplane.options;
         this.category = paperplane.category;
         this.img = paperplane.img;
     }
-
-    getPaperplane() {
-        alert(`El avioncito que recibiste contiene las siguientes palabras: \n\n"${this.quote}"\n\n${this.source} - ${this.category}`)
-
-    }
-
 }
 
 paperplanesList = []
@@ -91,66 +97,74 @@ for (const paperplane of paperplanes) {
     paperplanesList.push(new Paperplane(paperplane));
 }
 
-// GENERACION ALEATORIA DE AVIONCITO
-function surprise() {
+function getRandPaperplane() {
+    //GET RANDOM PAPERPLANE
     let index = Math.round(Math.random() * paperplanesList.length);
-    cardPaperplane(paperplanesList[index]);
-}
-
-function cardPaperplane(paperplane) {
-    //innerHTML
-    let sectionPaperplane = document.querySelector('.paperplane');
-    let imgPaperplane = document.createElement('div');
-    let txtPaperplane = document.createElement('div');
-    sectionPaperplane.innerHTML = `
-    <div class="imgPaperplane">
-
+    let paperplane = paperplanesList[index];
+    
+    //INNER HTML
+    imgPaperplane.innerHTML = `
     <img src="assets/img/${paperplane.img}.png">
-    </div>
-    <div class="txtPaperplane">
-    <h1>${paperplane.quote}</h1>
-    <h2>${paperplane.source}</h2>
-    <h3>${paperplane.category}</h3>
-    </div>
+    </div>`;
+    
+    txtPaperplane.innerHTML = `
+    <h1>"${paperplane.quote}"</h1>
+    <h4>Categoría: ${paperplane.category}</h4>
     `;
+
+    gmPaperplane.innerHTML = `
+    <h2 id="titleGame">¡Juguemos!</h2>
+    <h3 id="descriptionGame">Adivina quién es el autor de esta frase</h3>
+    `;
+
+    firstOption.innerHTML = `${paperplane.options[0]}`;
+    
+    secondOption.innerHTML = `${paperplane.options[1]}`;
+    
+    thirdOption.innerHTML = `${paperplane.options[2]}`;
+    
+    // EVENTOS
+    firstOption.onclick = (e) => verification(firstOption.textContent, paperplane.source);
+    secondOption.onclick = (e) => verification(secondOption.textContent, paperplane.source);
+    thirdOption.onclick = (e) => verification(thirdOption.textContent, paperplane.source);
 }
 
-function filtCategory() {
-    let comando = prompt("Escribe la categoría de la cual te gustaría recibir avioncitos: MARIA, AMOR, SANTIDAD, ENTREGA");
-    let paperplane;
-    switch (comando) {
-        case "AMOR":
-            paperplane = new Paperplane(paperplanes.find(paperplane => paperplane.category === 'Amor'));
-            cardPaperplane(paperplane);
-            break;
-        case "MARIA":
-            paperplane = new Paperplane(paperplanes.find(paperplane => paperplane.category === 'María'));
-            cardPaperplane(paperplane);
-            break;
-        case "SANTIDAD":
-            paperplane = new Paperplane(paperplanes.find(paperplane => paperplane.category === 'Santidad'));
-            cardPaperplane(paperplane);
-            break;
-        case "ENTREGA":
-            paperplane = new Paperplane(paperplanes.find(paperplane => paperplane.category === 'Entrega'));
-            cardPaperplane(paperplane);
-            break;
+const verification = (selected, correct) => {
+    // CORRECT
+    if(selected === firstOption.textContent && selected === correct) {
+        console.log('CORRECTO');
+        titleGame.innerHTML = `¡Has acertado!`;
+        firstOption.className = "correct";
+    } else if(selected === secondOption.textContent && selected === correct) {
+        console.log('CORRECTO');
+        titleGame.innerHTML = `¡Has acertado!`;
+        secondOption.className = "correct";
+    } else if(selected === thirdOption.textContent && selected === correct) {
+        console.log('CORRECTO');
+        titleGame.innerHTML = `¡Has acertado!`;
+        thirdOption.className = "correct";
     }
+    // INCORRECT
+    else if(selected === firstOption.textContent && selected !== correct) {
+        console.log('INCORRECTO');
+        titleGame.innerHTML = `¡Estuviste cerca!`;
+        firstOption.className = "incorrect";
+    } else if(selected === secondOption.textContent && selected !== correct) {
+        console.log('INCORRECTO');
+        titleGame.innerHTML = `¡Estuviste cerca!`;
+        secondOption.className = "incorrect";
+    } else if(selected === thirdOption.textContent && selected !== correct) {
+        console.log('INCORRECTO');
+        titleGame.innerHTML = `¡Estuviste cerca!`;
+        thirdOption.className = "incorrect";
+    } 
+
+    descriptionGame.innerHTML = `La respuesta correcta es ${correct}`;
+
+    // DISABLED BUTTONS
+    firstOption.disabled = true;
+    secondOption.disabled = true;
+    thirdOption.disabled = true;
 }
 
-// FUNCIONES
-function menu() {
-
-    alert(`AVIONCITOS DE PAPEL - SER EUCARISTÍA\nHola, hay ${paperplanesList.length} avioncitos de papel esperando a ser descubiertos. Escribe un comando y dejate abrazar\n\nCOMANDOS:\n- SORPRENDEME. Seleccionaremos un avioncito al azar para vos.\n- DEJARME ELEGIR. Escribe una categoría y te mostraremos un avioncito que pertenezca.`);
-    let comando = prompt("Escribe un comando:");
-
-    switch (comando) {
-        case "SORPRENDEME":
-            surprise();
-            break;
-        case "DEJARME ELEGIR":
-            filtCategory();
-            break;
-    }
-}
-menu();
+getRandPaperplane();

@@ -1,6 +1,33 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+
+h1 {
+    font-size: 2rem;
+    color: #372256;
+}
+
+h2 {
+    padding: 2rem 0rem 0rem 0rem;
+    font-size: 1.2rem;
+    color: #372256;
+}
+
+h3 {
+    font-size: 0.8rem;
+    margin: 0.6rem 0rem 2rem 0rem;
+    color: #372256;
+    font-weight: 400;
+}
+
+h4 {
+    font-size: 0.8rem;
+    margin: 2rem 0rem;
+    color: #D1CED7;
 }
 
 .paperplane {
@@ -9,28 +36,62 @@
     padding: 2rem;
     border-radius: 1rem;
     background-color: #f5f4f7;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1.2fr 2fr;
+    gap: 4rem;
     justify-content: space-between;
     align-items: center;
 }
 
-h1 {
-    font-size: 2.4rem;
+.txtPaperplane {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.gmPaperplane {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btnPaperplane {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    display: block;
+    width: 30rem;
+    padding: 0.4rem;
+    margin: 0.4rem 0rem;
+    border: 2px solid #D1CED7;
+    border-radius: 0.4rem;
+    color:#D1CED7
+}
+
+.correct:disabled {
+    background-color: #96CC76;
+    color:white;
+    font-weight: 700;
+    border: 2px solid #8BA37B;
+}
+
+.incorrect:disabled {
+    background-color: #E85049;
+    color:white;
+    font-weight: 700;
+    border: 2px solid #B2544F;
+}
+
+button:enabled:hover {
+    border: 2px solid #372256;
+    border-radius: 0.4rem;
     color: #372256;
-}
-
-h2 {
-    padding: 2rem 0rem;
-    font-size: 1.2rem;
-    color: #98A3E9
-}
-
-h3 {
-    font-size: 0.8rem;
-    color: #D1CED7;
+    font-weight: 700;
 }
 
 .imgPaperplane img{
-    width: 80%;
+    width: 100%;
     border-radius: 1rem;
 }
