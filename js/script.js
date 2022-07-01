@@ -5,80 +5,92 @@ let gmPaperplane = document.querySelector('.gmPaperplane');
 let firstOption = document.querySelector('#option-1');
 let secondOption = document.querySelector('#option-2');
 let thirdOption = document.querySelector('#option-3');
+const loginSection = document.querySelector('#loginSection');
+const paperplaneSection = document.querySelector('#paperplaneSection');
+const profileSection = document.querySelector('#profileSection');
+const loginForm = document.querySelector('#loginForm');
+const loginName = document.querySelector('#name');
+const loginCity = document.querySelector('#city');
+const displayName = document.querySelector('#displayName');
+const logoutBtn = document.querySelector("#logoutBtn");
 
-// PAPERPLANES
-const paperplanes = [
-    {
-        quote: "Al final del camino me dirán: ¿Has vivido? ¿Has amado? Y yo, sin decir nada, abriré el corazón lleno de nombres",
-        source: "Pedro Casaldáliga",
-        options: ["Pedro Casaldáliga", "San Antonio de Padua", "Santa Faustina Kowalska"],
-        category: "Amor",
-        img: "img-01",
-    },
-    {
-        quote: "Y me dijo el Señor que quería que yo fuera un nuevo loco en el mundo",
-        source: "San Francisco de Asís",
-        options: ["San Francisco de Asís", "San Agustín", "San Bernardo"],
-        category: "Entrega",
-        img: "img-02",
-    },
-    {
-        quote: "Rezar el Rosario es contemplar con María el rostro de Cristo",
-        source: "San Juan Pablo II",
-        options: ["San Pio de Pietrelcina", "Santa Catalina de Siena", "San Juan Pablo II"],
-        category: "María",
-        img: "img-03"
-    },
-    {
-        quote: "En su bondad infinita, jamás abandona Dios a aquellos que no le quieren abandonar a Él.",
-        source: "San Francisco de Sales",
-        options: ["San Pablo", "San Francisco de Sales", "Santa Inés"],
-        category: "Amor",
-        img: "img-04",
-    },
-    {
-        quote: "La santidad no es otra cosa sino una respuesta de amor al anuncio del amor",
-        source: "Padre Ignacio Larrañaga",
-        options: ["Beato Carlo Acutis", "Beata Chiara Badano", "Padre Ignacio Larrañaga"],
-        category: "Santidad",
-        img: "img-05"
-    },
-    {
-        quote: "Dios extiende sus manos en la Cruz para abrazar hasta los confines del universo",
-        source: "San Cirilo de Jerusalén ",
-        options: ["San Pio de Pietrelcina", "San Cirilo de Jerusalén", "San Agustín"],
-        category: "Amor",
-        img: "img-06"
-    },
-    {
-        quote: "Ser libre en el amor es su completa y total realización",
-        source: "Viviana Ruffener",
-        options: ["Padre Ignacio Larrañaga", "Viviana Ruffener", "Pedro Casaldáliga"],
-        category: "Amor",
-        img: "img-07"
-    },
-    {
-        quote: "Te buscaba afuera, Señor, y tú estabas dentro de mi, en mi corazón...",
-        source: "San Agustín",
-        options: ["San Agustín", "Santo Tomás de Aquino", "San Juan Pablo II"],
-        category: "Amor",
-        img: "img-08"
-    },
-    {
-        quote: "Mira la estrella e invoca a María, porque un hijo de María nunca perecedera",
-        source: "San Bernardo",
-        options: ["San Francisco de Asís", "San Francisco de Sales", "San Bernardo"],
-        category: "María",
-        img: "img-09"
-    },
-    {
-        quote: "La paz comienza con una sonrisa",
-        source: "Santa Teresa de Calcuta",
-        options: ["Santa Inés", "Santa Teresa de Lisieux", "Santa Teresa de Calcuta"],
-        category: "Santidad",
-        img: "img-10"
-    },
-]
+// RECUPERO OBJETO DE LOCALSTORAGE USANDO JSON
+let user = JSON.parse(localStorage.getItem('user'));
+console.log(user);
+
+// PAPERPLANES desde JSON
+
+const paperplanes = [{
+    "quote": "Al final del camino me dirán: ¿Has vivido? ¿Has amado? Y yo, sin decir nada, abriré el corazón lleno de nombres",
+    "source": "Pedro Casaldáliga",
+    "options": ["Pedro Casaldáliga", "San Antonio de Padua", "Santa Faustina Kowalska"],
+    "category": "Amor",
+    "img": "img-01"
+},
+{
+    "quote": "Y me dijo el Señor que quería que yo fuera un nuevo loco en el mundo",
+    "source": "San Francisco de Asís",
+    "options": ["San Francisco de Asís", "San Agustín", "San Bernardo"],
+    "category": "Entrega",
+    "img": "img-02"
+},
+{
+    "quote": "Rezar el Rosario es contemplar con María el rostro de Cristo",
+    "source": "San Juan Pablo II",
+    "options": ["San Pio de Pietrelcina", "Santa Catalina de Siena", "San Juan Pablo II"],
+    "category": "María",
+    "img": "img-03"
+},
+{
+    "quote": "En su bondad infinita, jamás abandona Dios a aquellos que no le quieren abandonar a Él.",
+    "source": "San Francisco de Sales",
+    "options": ["San Pablo", "San Francisco de Sales", "Santa Inés"],
+    "category": "Amor",
+    "img": "img-04"
+},
+{
+    "quote": "La santidad no es otra cosa sino una respuesta de amor al anuncio del amor",
+    "source": "Padre Ignacio Larrañaga",
+    "options": ["Beato Carlo Acutis", "Beata Chiara Badano", "Padre Ignacio Larrañaga"],
+    "category": "Santidad",
+    "img": "img-05"
+},
+{
+    "quote": "Dios extiende sus manos en la Cruz para abrazar hasta los confines del universo",
+    "source": "San Cirilo de Jerusalén ",
+    "options": ["San Pio de Pietrelcina", "San Cirilo de Jerusalén", "San Agustín"],
+    "category": "Amor",
+    "img": "img-06"
+},
+{
+    "quote": "Ser libre en el amor es su completa y total realización",
+    "source": "Viviana Ruffener",
+    "options": ["Padre Ignacio Larrañaga", "Viviana Ruffener", "Pedro Casaldáliga"],
+    "category": "Amor",
+    "img": "img-07"
+},
+{
+    "quote": "Te buscaba afuera, Señor, y tú estabas dentro de mi, en mi corazón...",
+    "source": "San Agustín",
+    "options": ["San Agustín", "Santo Tomás de Aquino", "San Juan Pablo II"],
+    "category": "Amor",
+    "img": "img-08"
+},
+{
+    "quote": "Mira la estrella e invoca a María, porque un hijo de María nunca perecedera",
+    "source": "San Bernardo",
+    "options": ["San Francisco de Asís", "San Francisco de Sales", "San Bernardo"],
+    "category": "María",
+    "img": "img-09"
+},
+{
+    "quote": "La paz comienza con una sonrisa",
+    "source": "Santa Teresa de Calcuta",
+    "options": ["Santa Inés", "Santa Teresa de Lisieux", "Santa Teresa de Calcuta"],
+    "category": "Santidad",
+    "img": "img-10"
+}];
+
 
 class Paperplane {
     constructor(paperplane) {
@@ -87,6 +99,13 @@ class Paperplane {
         this.options = paperplane.options;
         this.category = paperplane.category;
         this.img = paperplane.img;
+    }
+}
+
+class User {
+    constructor(user) {
+        this.name = user.name;
+        this.city = user.city;
     }
 }
 
@@ -108,13 +127,13 @@ function getRandPaperplane() {
     </div>`;
     
     txtPaperplane.innerHTML = `
-    <h1>"${paperplane.quote}"</h1>
-    <h4>Categoría: ${paperplane.category}</h4>
+    <h3>"${paperplane.quote}"</h3>
+    <h5>Categoría: ${paperplane.category}</h5>
     `;
 
     gmPaperplane.innerHTML = `
-    <h2 id="titleGame">¡Juguemos!</h2>
-    <h3 id="descriptionGame">Adivina quién es el autor de esta frase</h3>
+    <h3 id="titleGame">¡Juguemos!</h3>
+    <h4 id="descriptionGame">Adivina quién es el autor de esta frase</h4>
     `;
 
     firstOption.innerHTML = `${paperplane.options[0]}`;
@@ -148,7 +167,7 @@ const verification = (selected, correct) => {
     else if(selected === firstOption.textContent && selected !== correct) {
         console.log('INCORRECTO');
         titleGame.innerHTML = `¡Estuviste cerca!`;
-        firstOption.className = "incorrect";
+        firstOption.classList = "incorrect";
     } else if(selected === secondOption.textContent && selected !== correct) {
         console.log('INCORRECTO');
         titleGame.innerHTML = `¡Estuviste cerca!`;
@@ -165,6 +184,38 @@ const verification = (selected, correct) => {
     firstOption.disabled = true;
     secondOption.disabled = true;
     thirdOption.disabled = true;
+}
+
+const login = () => {
+    loginSection.classList.add("invisible");
+    paperplaneSection.classList.remove("invisible");
+    profileSection.classList.remove("invisible");
+    displayName.innerHTML = `${user.name}`
+}
+
+const logout = () => {
+    localStorage.removeItem('user');
+}
+
+// EVENTO DE LOGIN
+loginForm.addEventListener('submit', (e) => {
+    // evita que se refresque la pagina
+    e.preventDefault();
+    const user = [{"name": loginName.value, "city": loginCity.value}];
+    localStorage.setItem('user', JSON.stringify(user[0]));
+    if(!!user) {
+        login();
+    }
+});
+
+// EVENTO DE LOGOUT
+logoutBtn.addEventListener('click', (e) => {
+    logout();
+});
+
+// mantener la sesion iniciada
+if(!!user) {
+    login();
 }
 
 getRandPaperplane();

@@ -1,26 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CDN BOOSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <title>Avioncitos de papel - Ser Eucaristía</title>
+    <title>Godpplanes - Ser Eucaristía</title>
 </head>
+
 <body>
-    <section class="paperplane">
-        <!-- ACÁ SE INSERTARAN LOS ELEMENTOS A TRAVÉS DEL DOM -->
-        <div class="imgPaperplane"></div>
-        <div>
-            <div class="txtPaperplane"></div>
-            <div class="gmPaperplane"></div>
-            <div class="btnPaperplane">
-                <button id="option-1"></button>
-                <button id="option-2"></button>
-                <button id="option-3"></button>
-            </div>
+    <header>
+        <h1>Godpplanes</h1>
+        <div id="profileSection" class="profile invisible">
+            <h2 id="displayName">Ser Eucaristía</h2>
+            <button id="logoutBtn" type="button" class="btn btn-secondary">Salir</button>
         </div>
-    </section>
+    </header>
+    <main>
+        <section class="login" id="loginSection">
+            <div class="welcome">
+                <h2>Iniciar sesión</h2>
+                <form id="loginForm">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nombre</label>
+                        <input id="name" type="text" class="form-control" placeholder="Nombre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="city" class="form-label">Ciudad</label>
+                        <input id="city" type="text" class="form-control" placeholder="Ciudad">
+                    </div>
+                    <button type="submit" class="btn btn-login btn-primary">Comenzar</button>
+                </form>
+            </div>
+        </section>
+        <!-- <section class="pagination invisible"> -->
+            <!-- EN PROXIMA ENTREGA -->
+            <!-- <p>01 / 03</p> -->
+        <!-- </section> -->
+        <section class="paperplane invisible" id="paperplaneSection">
+            <!-- ACÁ SE INSERTARAN LOS ELEMENTOS A TRAVÉS DEL DOM -->
+            <div class="imgPaperplane"></div>
+            <div>
+
+                <div class="txtPaperplane"></div>
+                <div class="gmPaperplane"></div>
+                <div class="btnPaperplane">
+                    <button class="button-option" id="option-1"></button>
+                    <button class="button-option" id="option-2"></button>
+                    <button class="button-option" id="option-3"></button>
+                </div>
+            </div>
+        </section>
+    </main>
     <script src="js/script.js"></script>
 </body>
+
 </html>

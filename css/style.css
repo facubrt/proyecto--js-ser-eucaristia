@@ -5,34 +5,57 @@
     font-family: 'Poppins';
 }
 
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 4rem;
+}
+
+body {
+    background-color: #98A3E9;
+}
+
 
 h1 {
-    font-size: 2rem;
-    color: #372256;
+    font-size: 1.4rem;
+    color: #ffffff;
 }
 
 h2 {
-    padding: 2rem 0rem 0rem 0rem;
-    font-size: 1.2rem;
-    color: #372256;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #ffffff;
 }
 
 h3 {
+    padding: 2rem 0rem 0rem 0rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #372256;
+}
+
+h4 {
     font-size: 0.8rem;
     margin: 0.6rem 0rem 2rem 0rem;
     color: #372256;
     font-weight: 400;
 }
 
-h4 {
+h5 {
     font-size: 0.8rem;
     margin: 2rem 0rem;
     color: #D1CED7;
 }
 
+.pagination {
+    padding: 0rem 4rem 1rem 0rem;
+    text-align: end;
+    color: #ffffff;
+}
+
 .paperplane {
     display: grid;
-    margin: 2rem;
+    margin: 0.4rem 2rem 2rem 2rem;
     padding: 2rem;
     border-radius: 1rem;
     background-color: #f5f4f7;
@@ -60,7 +83,7 @@ h4 {
     align-items: center;
 }
 
-button {
+.button-option {
     display: block;
     width: 30rem;
     padding: 0.4rem;
@@ -75,6 +98,11 @@ button {
     color:white;
     font-weight: 700;
     border: 2px solid #8BA37B;
+    display: block;
+    width: 30rem;
+    padding: 0.4rem;
+    border-radius: 0.4rem;
+    margin: 0.4rem 0rem;
 }
 
 .incorrect:disabled {
@@ -82,16 +110,95 @@ button {
     color:white;
     font-weight: 700;
     border: 2px solid #B2544F;
+    display: block;
+    width: 30rem;
+    border-radius: 0.4rem;
+    padding: 0.4rem;
+    margin: 0.4rem 0rem;
 }
 
-button:enabled:hover {
+.button-option:enabled:hover {
     border: 2px solid #372256;
     border-radius: 0.4rem;
     color: #372256;
     font-weight: 700;
 }
 
+/* MODIFICACION DE CLASES DE BOOSTRAP */
+
+.welcome {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 1.2rem;
+}
+
+.welcome h2 {
+    text-align: center;
+    font-weight: 700;
+    color:#372256;
+}
+label {
+    color: #372256;
+}
+
+.btn-login {
+    width: 20rem;
+}
+
+.btn-primary {
+    background-color: #96CC76;
+    font-weight: 700;
+    border: 2px solid #8BA37B;
+    display: block;
+    padding: 0.4rem;
+    margin: 4rem 0rem 0rem 0rem;
+    border-radius: 0.4rem;
+}
+
+.btn-primary:hover {
+    background-color: #8BA37B;
+    font-weight: 700;
+    color: #ffffff;
+    border: 2px solid #8BA37B;
+}
+
+.profile {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.btn-secondary {
+    background-color: #E85049;
+    font-weight: 700;
+    border: 2px solid #B2544F;
+    display: block;
+    border-radius: 0.4rem;
+}
+
+.btn-secondary:hover {
+    background-color: #E85049;
+    font-weight: 700;
+    color: #ffffff;
+    border: 2px solid #B2544F;
+}
+/*  */
+
 .imgPaperplane img{
     width: 100%;
     border-radius: 1rem;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login h2{
+    margin: 2rem 0rem;
+}
+
+.invisible {
+    display: none;
 }
