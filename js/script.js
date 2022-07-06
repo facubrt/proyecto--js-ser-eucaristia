@@ -118,17 +118,20 @@ for (const paperplane of paperplanes) {
 
 function getRandPaperplane() {
     //GET RANDOM PAPERPLANE
-    let index = Math.round(Math.random() * paperplanesList.length);
-    let paperplane = paperplanesList[index];
+    let index = Math.round(Math.random() * (paperplanesList.length - 1));
+    console.log(index);
+
+    // DESNORMALIZACION / DESESTRUCTURACION
+    const {quote, source, options, category, img} = paperplanesList[index];
     
     //INNER HTML
     imgPaperplane.innerHTML = `
-    <img src="assets/img/${paperplane.img}.png">
+    <img src="assets/img/${img}.png">
     </div>`;
     
     txtPaperplane.innerHTML = `
-    <h3>"${paperplane.quote}"</h3>
-    <h5>Categoría: ${paperplane.category}</h5>
+    <h3>"${quote}"</h3>
+    <h5>Categoría: ${category}</h5>
     `;
 
     gmPaperplane.innerHTML = `
@@ -136,46 +139,34 @@ function getRandPaperplane() {
     <h4 id="descriptionGame">Adivina quién es el autor de esta frase</h4>
     `;
 
-    firstOption.innerHTML = `${paperplane.options[0]}`;
+    firstOption.innerHTML = `${options[0]}`;
     
-    secondOption.innerHTML = `${paperplane.options[1]}`;
+    secondOption.innerHTML = `${options[1]}`;
     
-    thirdOption.innerHTML = `${paperplane.options[2]}`;
+    thirdOption.innerHTML = `${options[2]}`;
     
     // EVENTOS
-    firstOption.onclick = (e) => verification(firstOption.textContent, paperplane.source);
-    secondOption.onclick = (e) => verification(secondOption.textContent, paperplane.source);
-    thirdOption.onclick = (e) => verification(thirdOption.textContent, paperplane.source);
+    firstOption.onclick = (e) => verification(firstOption.textContent, source);
+    secondOption.onclick = (e) => verification(secondOption.textContent, source);
+    thirdOption.onclick = (e) => verification(thirdOption.textContent, source);
 }
 
 const verification = (selected, correct) => {
     // CORRECT
     if(selected === firstOption.textContent && selected === correct) {
-        console.log('CORRECTO');
-        titleGame.innerHTML = `¡Has acertado!`;
-        firstOption.className = "correct";
+        showResult(firstOption, true);
     } else if(selected === secondOption.textContent && selected === correct) {
-        console.log('CORRECTO');
-        titleGame.innerHTML = `¡Has acertado!`;
-        secondOption.className = "correct";
+        showResult(secondOption, true);
     } else if(selected === thirdOption.textContent && selected === correct) {
-        console.log('CORRECTO');
-        titleGame.innerHTML = `¡Has acertado!`;
-        thirdOption.className = "correct";
+        showResult(thirdOption, true);
     }
     // INCORRECT
     else if(selected === firstOption.textContent && selected !== correct) {
-        console.log('INCORRECTO');
-        titleGame.innerHTML = `¡Estuviste cerca!`;
-        firstOption.classList = "incorrect";
+        showResult(firstOption, false);
     } else if(selected === secondOption.textContent && selected !== correct) {
-        console.log('INCORRECTO');
-        titleGame.innerHTML = `¡Estuviste cerca!`;
-        secondOption.className = "incorrect";
+        showResult(secondOption, false);
     } else if(selected === thirdOption.textContent && selected !== correct) {
-        console.log('INCORRECTO');
-        titleGame.innerHTML = `¡Estuviste cerca!`;
-        thirdOption.className = "incorrect";
+        showResult(thirdOption, false);
     } 
 
     descriptionGame.innerHTML = `La respuesta correcta es ${correct}`;
@@ -184,6 +175,12 @@ const verification = (selected, correct) => {
     firstOption.disabled = true;
     secondOption.disabled = true;
     thirdOption.disabled = true;
+}
+
+// USO DE TERNARIOS PARA DETERMINAR EL RESULTADO
+const showResult = (optionSelected, isCorrect) => {
+    titleGame.innerHTML = isCorrect ? `¡Has acertado!` : `¡Estuviste cerca!`;
+    optionSelected.className = isCorrect ? "correct" : "incorrect";
 }
 
 const login = () => {
@@ -195,6 +192,7 @@ const login = () => {
 
 const logout = () => {
     localStorage.removeItem('user');
+    location.reload();
 }
 
 // EVENTO DE LOGIN
