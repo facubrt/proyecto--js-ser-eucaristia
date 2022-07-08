@@ -9,6 +9,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    <!-- CDN LIBRERIA SWIPER JS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+
+
     <title>Godpplanes - Ser Eucaristía</title>
 </head>
 
@@ -38,24 +42,46 @@
             </div>
         </section>
         <!-- <section class="pagination invisible"> -->
-            <!-- EN PROXIMA ENTREGA -->
-            <!-- <p>01 / 03</p> -->
+        <!-- EN PROXIMA ENTREGA -->
+        <!-- <p>01 / 03</p> -->
         <!-- </section> -->
-        <section class="paperplane invisible" id="paperplaneSection">
-            <!-- ACÁ SE INSERTARAN LOS ELEMENTOS A TRAVÉS DEL DOM -->
-            <div class="imgPaperplane"></div>
-            <div>
-
-                <div class="txtPaperplane"></div>
-                <div class="gmPaperplane"></div>
-                <div class="btnPaperplane">
-                    <button class="button-option" id="option-1"></button>
-                    <button class="button-option" id="option-2"></button>
-                    <button class="button-option" id="option-3"></button>
+        <section class="paperplaneSection invisible" id="paperplaneSection">
+            <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide">
+                        <div class = "paperplane">
+                            <!-- ACÁ SE INSERTARAN LOS ELEMENTOS A TRAVÉS DEL DOM -->
+                            <div class="imgPaperplane"></div>
+                            <div>
+    
+                                <div class="txtPaperplane"></div>
+                                <div class="gmPaperplane"></div>
+                                <div class="btnPaperplane">
+                                    <button class="button-option" id="option-1"></button>
+                                    <button class="button-option" id="option-2"></button>
+                                    <button class="button-option" id="option-3"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- PROXIMAMENTE SE AGREGARAN MAS SLIDER CON AVIONCITOS -->
+                    <div class="swiper-slide">
+                        <div class = "endgame">
+                            <div class="txtEnd">
+                                <h3>¡Felicitaciones, has terminado el juego!</h3>
+                                <h4>Proximamente podrás jugar con más avioncitos y obtener puntajes</h4>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
-            </div>
+
         </section>
     </main>
+    <!-- SWIPER JS -->
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 

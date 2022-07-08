@@ -116,15 +116,17 @@ for (const paperplane of paperplanes) {
     paperplanesList.push(new Paperplane(paperplane));
 }
 
-function getRandPaperplane() {
+function getRandPaperplane(slide) {
     //GET RANDOM PAPERPLANE
+    
     let index = Math.round(Math.random() * (paperplanesList.length - 1));
-    console.log(index);
 
     // DESNORMALIZACION / DESESTRUCTURACION
     const {quote, source, options, category, img} = paperplanesList[index];
     
     //INNER HTML
+    const pplane = document.createElement('div');
+    pplane.className = "paperplane"
     imgPaperplane.innerHTML = `
     <img src="assets/img/${img}.png">
     </div>`;
@@ -170,11 +172,17 @@ const verification = (selected, correct) => {
     } 
 
     descriptionGame.innerHTML = `La respuesta correcta es ${correct}`;
+    
+    // PASAR AL SIGUIENTE AVIONCITO luego de un breve tiempo
+    setTimeout(() => {
+        swiper.slideNext(300, true);
+    }, 1000)
 
     // DISABLED BUTTONS
     firstOption.disabled = true;
     secondOption.disabled = true;
     thirdOption.disabled = true;
+
 }
 
 // USO DE TERNARIOS PARA DETERMINAR EL RESULTADO
@@ -215,5 +223,22 @@ logoutBtn.addEventListener('click', (e) => {
 if(!!user) {
     login();
 }
+
+// INCORPORACION DE LIBRERIA SWIPER JS
+const swiper = new Swiper('.swiper', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: false, 
+    effect: 'cards',
+    allowTouchMove: false,
+    
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    
+
+  });
 
 getRandPaperplane();
