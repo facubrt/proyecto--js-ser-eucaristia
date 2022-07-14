@@ -18,80 +18,7 @@ const logoutBtn = document.querySelector("#logoutBtn");
 let user = JSON.parse(localStorage.getItem('user'));
 console.log(user);
 
-// PAPERPLANES desde JSON
-
-const paperplanes = [{
-    "quote": "Al final del camino me dirán: ¿Has vivido? ¿Has amado? Y yo, sin decir nada, abriré el corazón lleno de nombres",
-    "source": "Pedro Casaldáliga",
-    "options": ["Pedro Casaldáliga", "San Antonio de Padua", "Santa Faustina Kowalska"],
-    "category": "Amor",
-    "img": "img-01"
-},
-{
-    "quote": "Y me dijo el Señor que quería que yo fuera un nuevo loco en el mundo",
-    "source": "San Francisco de Asís",
-    "options": ["San Francisco de Asís", "San Agustín", "San Bernardo"],
-    "category": "Entrega",
-    "img": "img-02"
-},
-{
-    "quote": "Rezar el Rosario es contemplar con María el rostro de Cristo",
-    "source": "San Juan Pablo II",
-    "options": ["San Pio de Pietrelcina", "Santa Catalina de Siena", "San Juan Pablo II"],
-    "category": "María",
-    "img": "img-03"
-},
-{
-    "quote": "En su bondad infinita, jamás abandona Dios a aquellos que no le quieren abandonar a Él.",
-    "source": "San Francisco de Sales",
-    "options": ["San Pablo", "San Francisco de Sales", "Santa Inés"],
-    "category": "Amor",
-    "img": "img-04"
-},
-{
-    "quote": "La santidad no es otra cosa sino una respuesta de amor al anuncio del amor",
-    "source": "Padre Ignacio Larrañaga",
-    "options": ["Beato Carlo Acutis", "Beata Chiara Badano", "Padre Ignacio Larrañaga"],
-    "category": "Santidad",
-    "img": "img-05"
-},
-{
-    "quote": "Dios extiende sus manos en la Cruz para abrazar hasta los confines del universo",
-    "source": "San Cirilo de Jerusalén ",
-    "options": ["San Pio de Pietrelcina", "San Cirilo de Jerusalén", "San Agustín"],
-    "category": "Amor",
-    "img": "img-06"
-},
-{
-    "quote": "Ser libre en el amor es su completa y total realización",
-    "source": "Viviana Ruffener",
-    "options": ["Padre Ignacio Larrañaga", "Viviana Ruffener", "Pedro Casaldáliga"],
-    "category": "Amor",
-    "img": "img-07"
-},
-{
-    "quote": "Te buscaba afuera, Señor, y tú estabas dentro de mi, en mi corazón...",
-    "source": "San Agustín",
-    "options": ["San Agustín", "Santo Tomás de Aquino", "San Juan Pablo II"],
-    "category": "Amor",
-    "img": "img-08"
-},
-{
-    "quote": "Mira la estrella e invoca a María, porque un hijo de María nunca perecedera",
-    "source": "San Bernardo",
-    "options": ["San Francisco de Asís", "San Francisco de Sales", "San Bernardo"],
-    "category": "María",
-    "img": "img-09"
-},
-{
-    "quote": "La paz comienza con una sonrisa",
-    "source": "Santa Teresa de Calcuta",
-    "options": ["Santa Inés", "Santa Teresa de Lisieux", "Santa Teresa de Calcuta"],
-    "category": "Santidad",
-    "img": "img-10"
-}];
-
-
+// CLASES
 class Paperplane {
     constructor(paperplane) {
         this.quote = paperplane.quote;
@@ -109,16 +36,24 @@ class User {
     }
 }
 
-paperplanesList = []
 
-for (const paperplane of paperplanes) {
-    // USO DE PROPIEDAD PUSH
-    paperplanesList.push(new Paperplane(paperplane));
-}
+// FUNCION INICIAL - MAIN
+async function initGame () {
+    paperplanesList = [];
+    // FETCH DESDE ARCHIVO LOCAL JSON
+    const respuesta = await fetch('/paperplanes.json');
+    const paperplanes = await respuesta.json();
+
+    for (const paperplane of paperplanes) {
+        // USO DE PROPIEDAD PUSH
+        paperplanesList.push(new Paperplane(paperplane));
+    }
+
+    getRandPaperplane();
+};
 
 function getRandPaperplane(slide) {
     //GET RANDOM PAPERPLANE
-    
     let index = Math.round(Math.random() * (paperplanesList.length - 1));
 
     // DESNORMALIZACION / DESESTRUCTURACION
@@ -195,7 +130,7 @@ const login = () => {
     loginSection.classList.add("invisible");
     paperplaneSection.classList.remove("invisible");
     profileSection.classList.remove("invisible");
-    displayName.innerHTML = `${user.name}`
+    displayName.innerHTML = `${user.name}`;
 }
 
 const logout = () => {
@@ -241,4 +176,4 @@ const swiper = new Swiper('.swiper', {
 
   });
 
-getRandPaperplane();
+initGame();
