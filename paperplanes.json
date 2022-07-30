@@ -35,7 +35,7 @@
 },
 {
     "quote": "Dios extiende sus manos en la Cruz para abrazar hasta los confines del universo",
-    "source": "San Cirilo de Jerusalén ",
+    "source": "San Cirilo de Jerusalén",
     "options": ["San Pio de Pietrelcina", "San Cirilo de Jerusalén", "San Agustín"],
     "category": "Amor",
     "img": "img-06"
@@ -67,4 +67,47 @@
     "options": ["Santa Inés", "Santa Teresa de Lisieux", "Santa Teresa de Calcuta"],
     "category": "Santidad",
     "img": "img-10"
-}]
+},
+{
+    "quote": "Padre, hágase en cada instante lo que para nosotros tienes previsto",
+    "source": "Padre José Kentenich",
+    "options": ["Padre José Kentenich", "Hna. Clare Crockett", "Santa Teresa de Calcuta"],
+    "category": "Santidad",
+    "img": "img-04"
+},
+{
+    "quote": "El amor es inventivo hasta el infinito",
+    "source": "San Vicente de Paul",
+    "options": ["San Vicente de Paul", "Santa Teresa de Lisieux", "San Juan Pablo II"],
+    "category": "Santidad",
+    "img": "img-03"
+},
+{
+    "quote": "La Cruz es la escuela del Amor",
+    "source": "San Maximiliano Kolbe",
+    "options": ["Santa Inés", "San Vicente de Paul", "San Maximiliano Kolbe"],
+    "category": "Santidad",
+    "img": "img-01"
+},
+{
+    "quote": "Sagrado corazón de Jesús enséñame a olvidarme enteramente de mí, ya que éste es el único camino para entrar en ti",
+    "source": "San Claudio de la Colombiere",
+    "options": ["San Vicente de Paul", "San Claudio de la Colombiere", "San Maximiliano Kolbe"],
+    "category": "Santidad",
+    "img": "img-10"
+},
+{
+    "quote": "Serenidad en el abandono es las más alta perfección",
+    "source": "P. José Kentenich",
+    "options": ["Hna. Clare Crockett", "Santa Teresa de Lisieux", "P. José Kentenich"],
+    "category": "Santidad",
+    "img": "img-10"
+},
+{
+    "quote": "María es el camino más seguro, el más corto y el más perfecto para ir a Jesús",
+    "source": "San Luis de Monfort",
+    "options": ["San Luis de Monfort", "San Claudio de la Colombiere", "Santa Teresa de Calcuta"],
+    "category": "Santidad",
+    "img": "img-10"
+}
+]

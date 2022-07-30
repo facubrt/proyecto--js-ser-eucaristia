@@ -20,14 +20,15 @@
     <header>
         <h1>Godpplanes</h1>
         <div id="profileSection" class="profile invisible">
-            <h2 id="displayName"></h2>
+            <button id="restartBtn" type="button" class="btn btn-tertiary">Reiniciar</button>
             <button id="logoutBtn" type="button" class="btn btn-secondary">Salir</button>
         </div>
     </header>
     <main>
         <section class="login" id="loginSection">
             <div class="welcome">
-                <h2>Iniciar sesión</h2>
+                <h2>Bienvenido</h2>
+                <p>Inicia sesión para disfrutar de este<br>pequeño juego creado por Ser Eucaristía</p>
                 <form id="loginForm">
                     <div class="mb-3">
                         <label for="name" class="form-label">Nombre</label>
@@ -41,38 +42,98 @@
                 </form>
             </div>
         </section>
-        <!-- <section class="pagination invisible"> -->
-        <!-- EN PROXIMA ENTREGA -->
-        <!-- <p>01 / 03</p> -->
-        <!-- </section> -->
+        <section id="paginationSection" class="pagination invisible">
+            <p id="displayName"></p>
+            <p id="score"></p>
+            <p id="currentPage"></p>
+        </section>
         <section class="paperplaneSection invisible" id="paperplaneSection">
             <div class="swiper">
-                <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
-                    <!-- Slides -->
+                    <!-- SLIDES -->
                     <div class="swiper-slide">
                         <div class = "paperplane">
                             <!-- ACÁ SE INSERTARAN LOS ELEMENTOS A TRAVÉS DEL DOM -->
-                            <div class="imgPaperplane"></div>
+                            <div id="img-1" class="imgPaperplane"></div>
                             <div>
     
-                                <div class="txtPaperplane"></div>
-                                <div class="gmPaperplane"></div>
-                                <div class="btnPaperplane">
-                                    <button class="button-option" id="option-1"></button>
-                                    <button class="button-option" id="option-2"></button>
-                                    <button class="button-option" id="option-3"></button>
+                                <div id="txt-1" class="txtPaperplane"></div>
+                                <div id="gm-1" class="gmPaperplane"></div>
+                                <div id="btn-1" class="btnPaperplane">
+                                    <button class="button-option" id="option1-1"></button>
+                                    <button class="button-option" id="option1-2"></button>
+                                    <button class="button-option" id="option1-3"></button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- PROXIMAMENTE SE AGREGARAN MAS SLIDER CON AVIONCITOS -->
+                    <div class="swiper-slide">
+                        <div class = "paperplane">
+                            <!-- ACÁ SE INSERTARAN LOS ELEMENTOS A TRAVÉS DEL DOM -->
+                            <div id="img-2" class="imgPaperplane"></div>
+                            <div>
+    
+                                <div id="txt-2" class="txtPaperplane"></div>
+                                <div id="gm-2" class="gmPaperplane"></div>
+                                <div id="btn-2" class="btnPaperplane">
+                                    <button class="button-option" id="option2-1"></button>
+                                    <button class="button-option" id="option2-2"></button>
+                                    <button class="button-option" id="option2-3"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class = "paperplane">
+                            <!-- ACÁ SE INSERTARAN LOS ELEMENTOS A TRAVÉS DEL DOM -->
+                            <div id="img-3" class="imgPaperplane"></div>
+                            <div>
+    
+                                <div id="txt-3" class="txtPaperplane"></div>
+                                <div id="gm-3" class="gmPaperplane"></div>
+                                <div id="btn-3" class="btnPaperplane">
+                                    <button class="button-option" id="option3-1"></button>
+                                    <button class="button-option" id="option3-2"></button>
+                                    <button class="button-option" id="option3-3"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class = "paperplane">
+                            <!-- ACÁ SE INSERTARAN LOS ELEMENTOS A TRAVÉS DEL DOM -->
+                            <div id="img-4" class="imgPaperplane"></div>
+                            <div>
+    
+                                <div id="txt-4" class="txtPaperplane"></div>
+                                <div id="gm-4" class="gmPaperplane"></div>
+                                <div id="btn-4" class="btnPaperplane">
+                                    <button class="button-option" id="option4-1"></button>
+                                    <button class="button-option" id="option4-2"></button>
+                                    <button class="button-option" id="option4-3"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class = "paperplane">
+                            <!-- ACÁ SE INSERTARAN LOS ELEMENTOS A TRAVÉS DEL DOM -->
+                            <div id="img-5" class="imgPaperplane"></div>
+                            <div>
+                                <div id="txt-5" class="txtPaperplane"></div>
+                                <div id="gm-5" class="gmPaperplane"></div>
+                                <div id="btn-5" class="btnPaperplane">
+                                    <button class="button-option" id="option5-1"></button>
+                                    <button class="button-option" id="option5-2"></button>
+                                    <button class="button-option" id="option5-3"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- SLIDE FINAL -->
                     <div class="swiper-slide">
                         <div class = "endgame">
-                            <div class="txtEnd">
-                                <h3>¡Felicitaciones, has terminado el juego!</h3>
-                                <h4>Proximamente podrás jugar con más avioncitos y obtener puntajes</h4>
-                            </div>
+                            <div id="txtEnd" class="txtEnd"></div>
                         </div>
                     </div>
                     
